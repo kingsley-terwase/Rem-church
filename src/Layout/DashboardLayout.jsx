@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import {styles} from "./styles";
 import DashboardNav from "./DashboardNav";
-import DashboardSideNav from "./DashboardSidenav";
+import DashboardSidenav from "./DashboardSidenav";
 
 const DashboardLayout = ({children}) => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,7 +25,7 @@ const DashboardLayout = ({children}) => {
         <Box sx={styles.wrap}>
             <CssBaseline />
             <DashboardNav onTog={handleToggle} />
-            <DashboardSideNav mobileOpen={mobileOpen} onClose={handleClose} onTransitionEnd={handleTransitionEnd} />
+            <DashboardSidenav mobileOpen={mobileOpen} onClose={handleClose} onTransitionEnd={handleTransitionEnd} />
             <Box component="main" sx={styles.content}>
                 {children}
             </Box>
