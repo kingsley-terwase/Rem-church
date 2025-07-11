@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import {navStackRow, togProps} from "./Lib";
+import {navStackRow, togProps} from "./lib";
 import {styles} from "./styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotiBadge from "./NotiBadge";
