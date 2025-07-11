@@ -109,3 +109,10 @@ export const handleClick = (activeIndex, len, i, update) => {
 export const showExpandIcon = (len) => {
   return len > 0;
 };
+
+
+export const isActive = (path, subMenu, currentPath) => {
+  if (path === currentPath) return Number(true);
+  if (subMenu.length < 1) return Number(false);
+  return Number(subMenu.some((item) => item.link === currentPath));
+};
