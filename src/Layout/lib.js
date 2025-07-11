@@ -6,8 +6,7 @@ import ChurchIcon from '@mui/icons-material/Church';
 import GroupIcon from '@mui/icons-material/Group';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { grey } from "@mui/material/colors";
-import {FONT_FAMILY} from "../Config/Fonts";
-import { useLocation } from "react-router-dom";
+import { FONT_FAMILY } from "../Config/Fonts";
 import PersonIcon from '@mui/icons-material/Person';
 
 
@@ -40,7 +39,7 @@ export const searchTypoProps = {
     fontFamily: FONT_FAMILY.secondary,
 };
 
-export const avatarBadgeOrigin = {vertical: "bottom", horizontal: "right"};
+export const avatarBadgeOrigin = { vertical: "bottom", horizontal: "right" };
 export const logoLayoutProps = {
     direction: "row",
     alignItems: "center",
@@ -64,37 +63,37 @@ export const navList = [
     {
         label: "Events",
         link: "/dashboard/events",
-        icon:< EventNoteIcon {...navIconProps} />,
+        icon: < EventNoteIcon {...navIconProps} />,
         subNav: [],
     },
     {
         label: "Ministries",
         link: "/dashboard/ministries",
-        icon: <GroupIcon  {...navIconProps}/>,
+        icon: <GroupIcon  {...navIconProps} />,
         subNav: [],
     },
     {
         label: "Church",
         link: "/dashboard/church",
-        icon: <ChurchIcon  {...navIconProps}/>,
+        icon: <ChurchIcon  {...navIconProps} />,
         subNav: [],
     },
     {
         label: "Finance",
         link: "/dashboard/finance",
-        icon: <AccountBalanceWalletIcon  {...navIconProps}/>,
+        icon: <AccountBalanceWalletIcon  {...navIconProps} />,
         subNav: [],
     },
     {
         label: "Profile",
         link: "/dashboard/profile",
-        icon: <PersonIcon  {...navIconProps}/>,
+        icon: <PersonIcon  {...navIconProps} />,
         subNav: [],
     },
     {
         label: "Settings",
         link: "/dashboard/settings",
-        icon: <SettingsIcon  {...navIconProps}/>,
+        icon: <SettingsIcon  {...navIconProps} />,
         subNav: [],
     },
 ];
@@ -114,10 +113,9 @@ export const showExpandIcon = (len) => {
     return false;
 };
 
-export const isActive = (path, subMenu) => {
-    const location = useLocation();
-    const currentPath = location.pathname;
-    if (path === currentPath) return Number(true);
-    if (subMenu.length < 1) return Number(false);
-    return Number(subMenu.some((item) => item.link === currentPath));
+export const isActive = (path, subMenu, currentPath) => {
+  if (path === currentPath) return Number(true);
+  if (subMenu.length < 1) return Number(false);
+  return Number(subMenu.some((item) => item.link === currentPath));
 };
+
