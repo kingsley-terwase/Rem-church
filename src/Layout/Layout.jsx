@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {useLocation} from "react-router-dom";
 import Header from "../Component/Header/Header";
 import Footer from "../Component/Footer/Footer";

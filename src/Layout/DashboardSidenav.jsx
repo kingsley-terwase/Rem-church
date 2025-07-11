@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable react/prop-types */
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";

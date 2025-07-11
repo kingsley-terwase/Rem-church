@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import {useState} from "react";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import {styles} from "./styles";
 import DashboardNav from "./DashboardNav";
-import DashboardSideNav from "./DashboardSideNav";
+import DashboardSideNav from "./DashboardSidenav";
 
 const DashboardLayout = ({children}) => {
     const [mobileOpen, setMobileOpen] = useState(false);
