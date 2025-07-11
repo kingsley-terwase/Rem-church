@@ -8,7 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import {useState} from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {styles} from "./styles";
-import {logoLayoutProps, navList, handleClick, showExpandIcon, showSubMenu, isActive} from "./Lib";
+import {logoLayoutProps, navList, handleClick, showExpandIcon, showSubMenu, isActive} from "./lib";
 import NavigLink from "./DashboardNavigLink";
 import LinkCustomized from "../Component/Link";
 import {FONT_FAMILY} from "../Config/Fonts";
@@ -16,7 +16,7 @@ import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider';
 import { blueGrey } from "@mui/material/colors";
 
-const DashboardSideNav = ({mobileOpen, onClose, onTransitionEnd}) => {
+const DashboardSidenav = ({mobileOpen, onClose, onTransitionEnd}) => {
     const [activeIndex, setActiveIndex] = useState(null);
     const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -97,4 +97,4 @@ const DashboardSideNav = ({mobileOpen, onClose, onTransitionEnd}) => {
     );
 };
 
-export default DashboardSideNav;
+export default DashboardSidenav;
