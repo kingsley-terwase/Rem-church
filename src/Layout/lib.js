@@ -113,9 +113,4 @@ export const showExpandIcon = (len) => {
     return false;
 };
 
-export const isActive = (path, subMenu, currentPath) => {
-  if (path === currentPath) return Number(true);
-  if (subMenu.length < 1) return Number(false);
-  return Number(subMenu.some((item) => item.link === currentPath));
-};
 
