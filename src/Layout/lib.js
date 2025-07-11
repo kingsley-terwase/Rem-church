@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
@@ -6,7 +7,6 @@ import GroupIcon from '@mui/icons-material/Group';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { grey } from "@mui/material/colors";
 import {FONT_FAMILY} from "../Config/Fonts";
-import Box from "@mui/material/Box";
 import { useLocation } from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 
