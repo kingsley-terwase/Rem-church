@@ -6,7 +6,7 @@ export const style = {
         backgroundColor: COLOR.primary,
         borderRadius: "50%",
         width: "25px",
-        px: "10px",
+        px: "21px",
         py: "10px",
         display: "flex",
         justifyContent: "center",

@@ -1,5 +1,5 @@
-import {styled} from "@mui/material/";
-import {blue, blueGrey, cyan, grey} from "@mui/material/colors";
+import { styled } from "@mui/material";
+import { blue, blueGrey, cyan, grey } from "@mui/material/colors";
 import {Link} from "react-router-dom";
 import {FONT_FAMILY} from "../Config/Fonts";
 
@@ -14,7 +14,7 @@ const DashboardNavigLink = styled(Link)(({isactive}) => ({
     padding: "1rem 1rem",
     ...(isactive == 1 && {
         color: cyan[500],
-        fontWeight: "700",
+        fontWeight: "500",
         "&:hover": {
             color: cyan[500],
             fontWeight: "700",

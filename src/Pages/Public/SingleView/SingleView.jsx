@@ -12,6 +12,7 @@ import { COLOR } from "../../../Config/Color";
 import {FONT_FAMILY} from "../../../Config/Fonts";
 import {ministries} from "../Ministries/static";
 import PageHeader from "../../../Component/PageHeader";
+import PageNotFound from "../../../Component/PageNotFound";
 
 const SingleView = () => {
     const {id} = useParams();
@@ -19,16 +20,9 @@ const SingleView = () => {
 
     if (!ministry) {
         return (
-            <Container maxWidth="md" sx={{textAlign: "center", mt: 5}}>
-                <Typography variant="h4" color="error">
-                    Ministry Not Found
-                </Typography>
-                <Link to="/" style={{textDecoration: "none"}}>
-                    <Button variant="contained" sx={{mt: 3}}>
-                        Back to Home
-                    </Button>
-                </Link>
-            </Container>
+            <>
+                <PageNotFound/>
+            </>
         );
     }
 
@@ -71,7 +65,6 @@ const SingleView = () => {
                         />
                     </Card>
 
-                    {/* Ministry Description */}
                     <Box>
                         <Typography
                             variant="body1"
@@ -87,9 +80,8 @@ const SingleView = () => {
                         </Typography>
                     </Box>
 
-                    {/* Join Ministry Button */}
                     <Box sx={{textAlign: "center", mt: 4}}>
-                        <Link to="/join-ministry" style={{textDecoration: "none"}}>
+                        <Link to="#" style={{textDecoration: "none"}}>
                             <Button
                                 variant="contained"
                                 sx={{
@@ -105,7 +97,6 @@ const SingleView = () => {
                         </Link>
                     </Box>
 
-                    {/* Leave a Comment Section */}
                     <Divider sx={{my: 4}} />
                     <Box>
                         <Typography

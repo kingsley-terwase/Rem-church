@@ -109,6 +109,20 @@ const Header = () => {
                                     Giving
                                 </Button>
                             </Link>
+                            <Link to="/login" style={{textDecoration: "none", color: "inherit"}}>
+                                <Button
+                                    sx={{
+                                        textTransform: "capitalize",
+                                        color: "white",
+                                        py: "8px",
+                                        px: "2rem",
+                                        backgroundColor: COLOR.primary,
+                                        fontFamily: FONT_FAMILY.primary,
+                                    }}
+                                >
+                                    Login
+                                </Button>
+                            </Link>
                         </Stack>
                     </Toolbar>
                 </Container>

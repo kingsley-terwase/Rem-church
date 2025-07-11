@@ -10,7 +10,7 @@ import {FONT_FAMILY} from "../Config/Fonts";
 import {COLOR} from "../Config/Color";
 import {Link} from "react-router-dom";
 
-const CustomCard = ({image, title, description, actions, descriptionLimit = 100}) => {
+const CustomCard = ({ id, image, title, description, actions, descriptionLimit = 100}) => {
     const truncatedDescription =
         description.length > descriptionLimit ? `${description.substring(0, descriptionLimit)}...` : description;
 

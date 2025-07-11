@@ -5,7 +5,7 @@ import Footer from "../Component/Footer/Footer";
 function Layout({children}) {
     const location = useLocation();
 
-    const noLayoutRoutes = ["/login", "/verify-email", "/sign-up", "/otp"];
+    const noLayoutRoutes = ["/login", "/verify-email", "/forgot-password", "/sign-up", "/otp"];
 
     const hideLayout = noLayoutRoutes.includes(location.pathname);
     return (

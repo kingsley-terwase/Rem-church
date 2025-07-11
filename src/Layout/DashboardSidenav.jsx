@@ -13,6 +13,7 @@ import {FONT_FAMILY} from "../Config/Fonts";
 import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider';
 import { blueGrey } from "@mui/material/colors";
+
 const DashboardSideNav = ({mobileOpen, onClose, onTransitionEnd}) => {
     const [activeIndex, setActiveIndex] = useState(null);
     const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -24,8 +25,8 @@ const DashboardSideNav = ({mobileOpen, onClose, onTransitionEnd}) => {
                     <LinkCustomized to="/">
                         <Stack spacing={1} direction={{ xs: "row", md:"row"}}>
                             <img style={styles.logoImg} src="/Logo/Rem.png" alt="logo" />
-                            <Typography variant="body1" sx={{ pt: "1.3rem",fontSize: { xs: "9px", md:"18px"}, fontFamily: FONT_FAMILY.primary, fontWeight: "700",}} color="#fff">
-                                REM CHURCH{" "}
+                            <Typography sx={{ pt: "1.5rem", whiteSpace:'nowrap',  fontSize: { xs: "12px", md:"14px"}, fontFamily: FONT_FAMILY.primary, fontWeight: "700",}} color="#fff">
+                                REM CHURCH
                             </Typography>
                         </Stack>
                     </LinkCustomized>

@@ -18,7 +18,8 @@ import Grid from "@mui/material/Grid";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import MinistryComponent from "../../../Component/MinistryComponent";
 import {Link} from "react-router-dom";
-const Index = () => {
+import ContactUs from "../../../Component/ContactUs";
+const HomePage = () => {
     return (
         <>
             <Container maxWidth="lg">
@@ -55,6 +56,7 @@ const Index = () => {
                     </Link>
                 </Box>
                 <Stack
+                    data-aos="fade-up"
                     display="grid"
                     gap={9}
                     sx={{
@@ -167,17 +169,14 @@ const Index = () => {
                 <Stack></Stack>
             </Container>
             <Box
+                data-aos="fade-down"
                 sx={{
                     position: "relative",
                     width: "100%",
                     height: "600px",
                 }}
             >
-                <Box
-                    sx={{
-                        ...style.Overlay,
-                    }}
-                />
+                <Box sx={{...style.Overlay,}}/>
                 <img
                     src="/Images/church_5.png"
                     alt="church"
@@ -189,31 +188,11 @@ const Index = () => {
                 />
 
                 <Container>
-                    <Box
-                        sx={{
-                            ...style.contentImg,
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                ...style.rippleBox,
-                            }}
-                        >
-                            <Box
-                                sx={{
-                                    ...style.rippleBox1,
-                                }}
-                            />
-                            <Box
-                                sx={{
-                                    ...style.rippleBox2,
-                                }}
-                            />
-                            <Diversity3OutlinedIcon
-                                sx={{
-                                    ...style.rippleIcon,
-                                }}
-                            />
+                    <Box sx={{...style.contentImg,}}>
+                        <Box sx={{...style.rippleBox,}}>
+                            <Box sx={{...style.rippleBox1,}}/>
+                            <Box sx={{...style.rippleBox2,}}/>
+                            <Diversity3OutlinedIcon sx={{...style.rippleIcon,}}/>
                         </Box>
 
                         <Typography
@@ -247,16 +226,16 @@ const Index = () => {
                     <style>
                         {" "}
                         {`
-                @keyframes ripple {
-                    0% {
-                    transform: scale(0.8);
-                    opacity: 1;
+                    @keyframes ripple {
+                        0% {
+                        transform: scale(0.8);
+                        opacity: 1;
+                        }
+                        100% {
+                        transform: scale(2.5);
+                        opacity: 0;
+                        }
                     }
-                    100% {
-                    transform: scale(2.5);
-                    opacity: 0;
-                    }
-                }
                 `}
                     </style>
                 </Container>
@@ -267,45 +246,24 @@ const Index = () => {
                 cardData={cardData}
                 buttonText="View More Ministries"
             />
-            <Box sx={{position: "relative", marginTop: {md: "5rem", xs: "15rem"}}}>
-                <Box sx={style.floatingIconBox} className="bounce-top">
-                    <HeadsetMicIcon sx={style.icon} />
-                    <Typography variant="h5" sx={{fontFamily: FONT_FAMILY.primary, py: "6px", color: "#fff"}}>
-                        Call Us
-                    </Typography>
-                    <Typography variant="body2" sx={{...style.contactText}}>
-                        {" "}
-                        19, Gyado Hospital Road, Box 971
-                    </Typography>
-                    <Typography sx={style.contactText}>Gboko, Benue State, Nigeria</Typography>
-                    <Typography sx={{...style.contactText, fontWeight: "600"}}>+234 070 885 67 890</Typography>
-                    <Typography sx={{...style.contactText}}>remchurch@gmail.com</Typography>
-                </Box>
-
-                <Box sx={style.container}>
-                    <Box sx={{...style.contentBox}}>
-                        <Typography sx={style.title}>Get in Touch</Typography>
-                        <Typography sx={style.subtitle}>Dont hesitate Contact us</Typography>
-                        <Typography sx={style.description}>
-                            Have questions or need assistance? Our team is here to help! Reach out to us through the
-                            contact information provided or fill out our online contact form. We look forward to hearing
-                            from you.
-                        </Typography>
-                        <Button
-                            sx={{
-                                mt: "1rem",
-                                textTransform: "capitalize",
-                                color: "#fff",
-                                backgroundColor: COLOR.primary,
-                                py: "5px",
-                                px: "12px",
-                            }}
-                        >
-                            contact us
-                        </Button>
-                    </Box>
-                </Box>
+            <ContactUs/>
+            <Box sx={{ display: "flex", py: "4rem", alignItems: "center", justifyContent: "center"}}>
+                <Link to="/ministries" style={{textDecoration: "none"}}>
+                    <Button
+                        variant="contained"
+                        sx={{
+                            backgroundColor: "white",
+                            color: COLOR.primary,
+                            fontFamily: FONT_FAMILY.primary,
+                            fontWeight: "700",
+                            textTransform: "capitalize",
+                        }}
+                    >
+                        view more <ArrowRightAltIcon />{" "}
+                    </Button>
+                </Link>
             </Box>
+            
             <Container maxWidth="lg">
                 <Stack
                     direction="column"
@@ -343,12 +301,13 @@ const Index = () => {
                                 date={post.date}
                                 title={post.title}
                                 description={post.description}
+                                btn={post.btn}
                             />
                         </Grid>
                     ))}
                 </Grid>
                 <Box sx={{display: "flex", py: "4rem", alignItems: "center", justifyContent: "center"}}>
-                    <Link to="/blog" style={{ textDecoration: "none",}}>
+                    <Link to="/blog" style={{textDecoration: "none"}}>
                         <Button
                             variant="contained"
                             sx={{
@@ -356,7 +315,7 @@ const Index = () => {
                                 color: COLOR.primary,
                                 fontFamily: FONT_FAMILY.primary,
                                 fontWeight: "700",
-                                textTransform: "capitalize"
+                                textTransform: "capitalize",
                             }}
                         >
                             view more <ArrowRightAltIcon />{" "}
@@ -368,4 +327,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default HomePage;

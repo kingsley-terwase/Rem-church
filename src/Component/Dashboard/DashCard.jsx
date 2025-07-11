@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-const DashboardCard = ({children, ...rest}) => {
+const DashboardCard = ({ children, ...rest }) => {
     return (
         <Box
             sx={{

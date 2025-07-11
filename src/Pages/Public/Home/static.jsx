@@ -42,6 +42,7 @@ export const AboutUsData = [
 
 export const cardData = [
     {
+        id: "1",
         image: "/Images/church_7.png",
         title: "Youth Ministry",
         description:
@@ -49,6 +50,7 @@ export const cardData = [
         actions: [{label: "Read More", variant: "contained"}],
     },
     {
+        id: "2",
         image: "/Images/church_4.png",
         title: "Children Ministry",
         description:
@@ -56,6 +58,7 @@ export const cardData = [
         actions: [{label: "Read More", variant: "contained"}],
     },
     {
+        id: "3",
         image: "/Images/church_9.png",
         title: "Teenagers Ministry",
         description:
@@ -63,6 +66,7 @@ export const cardData = [
         actions: [{label: "Read More", variant: "contained"}],
     },
     {
+        id: "4",
         image: "/Images/church_8.png",
         title: "Women Ministry",
         description:
@@ -70,7 +74,8 @@ export const cardData = [
         actions: [{label: "Read More", variant: "contained"}],
     },
     {
-        image: "/Images/church_8.png",
+        id: "5",
+        image: "/Images/church_1.png",
         title: "Prayer Ministry",
         description:
             "Children’s ministry is the most important ministry in our church. This ministry helps kids learn about the Lord Jesus and how to start a personal relationship with Him.",
@@ -84,17 +89,20 @@ export const blogPosts = [
         date: "Nov 19, 2024",
         title: "Help End Water Crisis for Families",
         description: "This is a short description of the blog post to give the reader an idea of its content.",
+        btn: "Read More"
     },
     {
         image: "/Images/church_2.png",
         date: "Nov 18, 2024",
         title: "Spirit of the lord is from the New life",
         description: "An engaging description for another blog post to entice readers to click.",
+        btn: "Read More"
     },
     {
         image: "/Images/church_3.png",
         date: "Nov 17, 2024",
         title: "Innocent But not wise a book by Bro Gbile",
         description: "A third description to demonstrate mapping through an array of blog posts.",
+        btn: "Read More"
     },
 ];

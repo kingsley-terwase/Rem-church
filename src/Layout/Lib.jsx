@@ -7,11 +7,13 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { grey } from "@mui/material/colors";
 import {FONT_FAMILY} from "../Config/Fonts";
 import Box from "@mui/material/Box";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import PersonIcon from '@mui/icons-material/Person';
 
-export const drawerWidth = 310;
-export const layoutPad = 32;
-export const navHeight = 60;
+
+export const drawerWidth = '240px'
+export const layoutPad = '128px';
+export const navHeight = '68px';
 
 export const togProps = {
     color: "inherit",
@@ -81,6 +83,12 @@ export const navList = [
         label: "Finance",
         link: "/dashboard/finance",
         icon: <AccountBalanceWalletIcon  {...navIconProps}/>,
+        subNav: [],
+    },
+    {
+        label: "Profile",
+        link: "/dashboard/profile",
+        icon: <PersonIcon  {...navIconProps}/>,
         subNav: [],
     },
     {
