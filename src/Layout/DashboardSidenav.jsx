@@ -58,7 +58,7 @@ const DashboardSidenav = ({mobileOpen, onClose, onTransitionEnd}) => {
                                     isactive={isActive(path, subMenu)}
                                 >
                                     <Box sx={styles.navLInkIn}>
-                                        <span>{item.icon}</span>
+                                        <span>{item.icon()}</span>
                                         {item.label}
                                     </Box>
                                     {isExpand && !isMenu && <ExpandMoreIcon style={styles.iconColor} />}
