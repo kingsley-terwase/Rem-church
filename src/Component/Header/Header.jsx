@@ -31,9 +31,9 @@ const Header = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const backgrounds = [
-        {image: "/Images/church_1.png", overlay: "rgba(0, 0, 50, 0.7)"},
-        {image: "/Images/church_2.png", overlay: "rgba(0, 0, 0, 0.8)"},
-        {image: "/Images/church_3.png", overlay: "rgba(50, 0, 0, 0.6)"},
+        {image: "/Images/church_10.png", overlay: "rgba(0, 0, 0, 0.8)"},
+        {image: "/Images/church_11.png", overlay: "rgba(0, 0, 0, 0.8)"},
+        {image: "/Images/church_3.png", overlay: "rgba(0, 0, 0, 0.8)"},
     ];
 
     useEffect(() => {
