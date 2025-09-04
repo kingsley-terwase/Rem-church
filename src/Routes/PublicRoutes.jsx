@@ -9,12 +9,13 @@ import DepartmentsPage from '../Pages/Public/Departments/DepartmentsPage'
 import TheologyPage from '../Pages/Public/Theology/TheologyPage'
 import ContactUsPage from '../Pages/Public/ContactUs/ContactUsPage'
 import GivingPage from '../Pages/Public/Giving/GivingPage'
-import SingleBlogPage from '../Pages/Public/SingleBlog/SingleBlogPage'
+import SingleBlogPage from '../Pages/Public/SingleBlog/SingleEventsPage'
 import SingleView from '../Pages/Public/SingleView/SingleView'
 import { Login } from '../Pages/Public/Auth/Login'
 import HomePage from '../Pages/Public/Home/Index'
 import { ForgotPassword } from '../Pages/Public/Auth/forgotPassword'
 import PageLoader from '../Component/PageLoader'
+import SingleEventsPage from '../Pages/Public/SingleBlog/SingleEventsPage'
 
 const PublicRoutes = () => {
   const location = useLocation()
@@ -44,7 +45,7 @@ const PublicRoutes = () => {
         <Route path='/giving' element={<GivingPage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
-        <Route path='/events/:id' element={<SingleBlogPage />} />
+        <Route path='/events/:slug' element={<SingleEventsPage />} />
         <Route path='/ministries/:id' element={<SingleView />} />
       </Routes>
 

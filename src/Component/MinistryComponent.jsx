@@ -12,9 +12,11 @@ import { Link } from "react-router-dom";
 import { COLOR } from "../Config/Color";
 import { FONT_FAMILY } from "../Config/Fonts";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+
+
 const MinistryComponent = ({ title, subtitle, cardData, buttonText }) => {
     return (
-        <Container maxWidth="lg" sx={{ py: "5rem" }}>
+        <Container data-aos="fade-up" maxWidth="lg" sx={{ py: "5rem" }}>
             <Box>
                 <Stack
                     direction="column"
@@ -39,7 +41,7 @@ const MinistryComponent = ({ title, subtitle, cardData, buttonText }) => {
                         <Typography
                             variant="h5"
                             sx={{
-                                fontFamily: FONT_FAMILY.tertiary,
+                                fontFamily: FONT_FAMILY.font_one,
                                 fontWeight: "600",
                             }}
                         >
@@ -57,6 +59,7 @@ const MinistryComponent = ({ title, subtitle, cardData, buttonText }) => {
                 >
                     {cardData.map((card) => (
                         <Card
+                            data-aos="fade-up"
                             key={card.id}
                             sx={{
                                 maxWidth: 345,
@@ -88,7 +91,7 @@ const MinistryComponent = ({ title, subtitle, cardData, buttonText }) => {
                                         left: 0,
                                         width: "100%",
                                         height: "100%",
-                                        backgroundColor: "rgb(191, 10, 48, 0.7)",
+                                        backgroundColor: COLOR.primary,
                                         display: "flex",
                                         justifyContent: "center",
                                         alignItems: "center",
@@ -122,18 +125,18 @@ const MinistryComponent = ({ title, subtitle, cardData, buttonText }) => {
                                     variant="h6"
                                     sx={{
                                         fontWeight: "600",
-                                        fontFamily: FONT_FAMILY.tertiary,
+                                        fontFamily: FONT_FAMILY.font_one,
                                     }}
                                 >
                                     {card.title}
                                 </Typography>
                                 <Typography
-                                    variant="body2"
+                                    variant="subtitle1"
                                     sx={{
                                         lineHeight: "1.5rem",
-                                        fontFamily: FONT_FAMILY.tertiary,
+                                        fontFamily: FONT_FAMILY.font_one,
                                     }}
-                                    color="text.secondary"
+                                    color=""
                                 >
                                     {card.description.length > 100
                                         ? `${card.description.substring(0, 100)}...`
@@ -148,7 +151,7 @@ const MinistryComponent = ({ title, subtitle, cardData, buttonText }) => {
                                             mb: "1rem",
                                             textTransform: "capitalize",
                                             fontWeight: "700",
-                                            color: COLOR.tertiary,
+                                            color: COLOR.primary,
                                         }}
                                         onClick={() =>
                                             console.log(`Navigating to ministry ID: ${card.id}`)

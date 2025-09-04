@@ -16,17 +16,19 @@ import {FONT_FAMILY} from "../../../Config/Fonts";
 import {events} from "../Event/static";
 import PageHeader from "../../../Component/PageHeader";
 import SearchIcon from "@mui/icons-material/Search";
+import { slugify } from "../../../Utilities/slugify";
+import { Search20Filled, SearchFilled } from "@fluentui/react-icons";
 
 const categories = ["Faith", "Gratitude", "Hope", "Spiritual Growth"];
 const tags = ["Faith", "Resilience", "Spirituality", "Life Lessons", "Growth"];
 
-const SingleBlogPage = () => {
-    const {id} = useParams();
-    const event = events.find((event) => event.id === id);
+const SingleEventsPage = () => {
+    const { slug } = useParams();
+    const event = events.find((event) => slugify(event.title === slug));
 
     if (!event) {
         return (
-            <Container maxWidth="md" sx={{textAlign: "center", mt: 5}}>
+            <Container maxWidth="md" sx={{textAlign: "center", my:'10rem'}}>
                 <Typography variant="h4" color="error">
                     Events Not Found
                 </Typography>
@@ -164,7 +166,7 @@ const SingleBlogPage = () => {
                                     }}
                                     InputProps={{
                                         startAdornment: (
-                                            <SearchIcon
+                                            <Search20Filled
                                                 sx={{
                                                     cursor: "pointer",
                                                     color: "#fff",
@@ -291,8 +293,8 @@ const SingleBlogPage = () => {
                             </Typography>
                             {events.map((popularPost) => (
                                 <Link
-                                    to={`/event/${popularPost.id}`}
-                                    key={popularPost.id}
+                                    to={`/event/${popularPost.slug}`}
+                                    key={popularPost.slug}
                                     style={{textDecoration: "none"}}
                                 >
                                     <Box sx={{mb: 2, display: "flex", alignItems: "center"}}>
@@ -335,4 +337,4 @@ const SingleBlogPage = () => {
     );
 };
 
-export default SingleBlogPage;
+export default SingleEventsPage;

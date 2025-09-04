@@ -3,6 +3,7 @@ import Stack from "@mui/material/Stack";
 import DashboardCard from "./DashCard";
 import {FONT_FAMILY} from "../../Config/Fonts";
 import { blue, cyan } from "@mui/material/colors";
+import { COLOR } from "../../Config/Color";
 
 const DashboardTab = ({children, tabs = [{label: "", key: 0}], activeTab, updateActiveTab}) => {
     const stylesMap = {
@@ -17,9 +18,9 @@ const DashboardTab = ({children, tabs = [{label: "", key: 0}], activeTab, update
 
         active: {
             fontWeight: 700,
-            color: cyan[600],
+            color: "#fff",
             fontFamily: FONT_FAMILY.primary,
-            backgroundColor: "#0a0812",
+            backgroundColor: COLOR.primary,
             padding: "6px 20px",
             borderRadius: "30px",
         },
@@ -27,7 +28,7 @@ const DashboardTab = ({children, tabs = [{label: "", key: 0}], activeTab, update
         inactive: {
             fontWeight: 500,
             color: "#fff",
-            backgroundColor: blue[300],
+            backgroundColor: blue[600],
             fontFamily: FONT_FAMILY.primary,
             padding: "6px 20px",
             borderRadius: "30px",

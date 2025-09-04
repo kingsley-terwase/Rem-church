@@ -18,11 +18,11 @@ export const style = {
     },
     columnHeader: {
         marginBottom: "1rem",
-        fontFamily: FONT_FAMILY.primary,
+        fontFamily: FONT_FAMILY.font_one,
         fontWeight: "bold",
     },
     columnText: {
-        fontFamily: FONT_FAMILY.primary,
+        fontFamily: FONT_FAMILY.font_one,
         marginBottom: "0.5rem",
         color: "#ddd",
     },
@@ -58,7 +58,7 @@ export const style = {
         padding: "0.8rem 1rem",
         backgroundColor: COLOR.primary,
         color: "#fff",
-        fontFamily: FONT_FAMILY.primary,
+        fontFamily: FONT_FAMILY.font_one,
         borderRadius: "0 5px 5px 0",
         border: "none",
         cursor: "pointer",
@@ -72,6 +72,6 @@ export const style = {
     },
     footerText: {
         color: "#aaa",
-        fontFamily: FONT_FAMILY.primary,
+        fontFamily: FONT_FAMILY.font_one,
     },
 };

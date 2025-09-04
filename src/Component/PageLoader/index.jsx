@@ -8,7 +8,7 @@ const PageLoader = ({ open }) => {
   return (
     <Backdrop open={open} sx={{ zIndex: 9999, color: '#fff', backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
       <Box position="relative" display="flex" alignItems="center" justifyContent="center">
-        <CircularProgress size={100} thickness={2} />
+        <CircularProgress size={100} thickness={5} />
         <Box
           position="absolute"
           component="img"

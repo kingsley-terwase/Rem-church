@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { COLOR } from "../Config/Color";
+import { slugify } from "../Utilities/slugify";
 
 const styles = {
     card: {
@@ -36,7 +38,7 @@ const styles = {
         position: "absolute",
         top: 38,
         left: 0,
-        backgroundColor: "#EF3F4D",
+        backgroundColor:COLOR.primary,
         color: "#fff",
         padding: "8px 3px",
         borderRadius: "4px",
@@ -47,8 +49,10 @@ const styles = {
     },
 };
 
-const BlogCard = ({ id, image, date, title, description, btn }) => {
+const EventsCard = ({ id, image, date, title, description, btn }) => {
     const [isHovered, setIsHovered] = React.useState(false);
+
+
 
     return (
         <Card
@@ -78,12 +82,12 @@ const BlogCard = ({ id, image, date, title, description, btn }) => {
                 <Typography variant="body2" color="text.secondary" gutterBottom>
                     {description.length > 100 ? `${description.slice(0, 100)}...` : description}
                 </Typography>
-                <Link to={`/events/${id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/events/${slugify(title)}`} style={{ textDecoration: "none" }}>
                     <Button
                         size="small"
                         style={{
                             marginTop: 8,
-                            color: "#EF3F4D",
+                            color: COLOR.primary,
                             fontWeight: "700",
                             textTransform: "capitalize",
                         }}
@@ -96,4 +100,4 @@ const BlogCard = ({ id, image, date, title, description, btn }) => {
     );
 };
 
-export default BlogCard;
+export default EventsCard;

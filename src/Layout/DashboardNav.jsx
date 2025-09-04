@@ -1,18 +1,18 @@
-/* eslint-disable react/prop-types */
+import React from "react";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import {navStackRow, togProps} from "./lib";
-import {styles} from "./styles";
+import { navStackRow, togProps } from "./lib";
+import { styles } from "./styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotiBadge from "./NotiBadge";
-import {FONT_FAMILY} from "../Config/Fonts";
-import {useLocation} from "react-router-dom";
+import { FONT_FAMILY } from "../Config/Fonts";
+import { useLocation } from "react-router-dom";
 import ProfileMenu from "../Component/Dashboard/ProfileComponent";
 import SearchInput from "../Component/Dashboard/SearchInput";
 
-const DashboardNav = ({ onTog }) => {
+const DashboardNav = ({ onTog, isCollapsed }) => {
     const location = useLocation();
 
     const getCurrentPagename = (pathname) => {
@@ -27,6 +27,14 @@ const DashboardNav = ({ onTog }) => {
                 return "Church";
             case "/dashboard/finance":
                 return "Finance";
+            case "/dashboard/users":
+                return "Users";
+            case "/dashboard/admin":
+                return "Admin Panel";
+            case "/dashboard/profile":
+                return "Profile";
+            case "/dashboard/settings":
+                return "Settings";
             default:
                 return "Dashboard";
         }
@@ -35,12 +43,20 @@ const DashboardNav = ({ onTog }) => {
     const pageName = getCurrentPagename(location.pathname);
 
     return (
-        <Box position="fixed" sx={styles.nav}>
+        <Box sx={styles.nav(isCollapsed)}>
             <Stack {...navStackRow}>
                 <IconButton onClick={onTog} sx={styles.togBtn} {...togProps}>
                     <MenuIcon />
                 </IconButton>
-                <Typography color="#000" sx={{fontFamily: FONT_FAMILY.primary, textTransform: "capitalize"}}>
+                <Typography
+                    variant="h6"
+                    color="#000"
+                    sx={{
+                        fontFamily: FONT_FAMILY.primary,
+                        textTransform: "capitalize",
+                        fontWeight: 600
+                    }}
+                >
                     {pageName}
                 </Typography>
             </Stack>
@@ -53,7 +69,7 @@ const DashboardNav = ({ onTog }) => {
                     sx={{
                         py: "4px",
                         px: "7px",
-                        border: "1px solid gray",
+                        border: "1px solid #e0e0e0",
                         borderRadius: "50%",
                         backgroundColor: "#fff",
                     }}

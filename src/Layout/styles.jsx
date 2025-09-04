@@ -1,21 +1,26 @@
 import { blueGrey, grey, lightGreen, red } from "@mui/material/colors"
-import { drawerWidth, layoutPad, navHeight } from "./lib"
 import { FONT_FAMILY } from "../Config/Fonts"
 
+export const drawerWidth = 240;
+export const collapsedDrawerWidth = 70;
+export const layoutPad = 20;
+export const navHeight = 68;
 
 export const styles = {
   wrap: {
     display: "flex",
-    backgroundColor: grey[100]
+    backgroundColor: grey[100],
+    minHeight: "100vh"
   },
   togBtn: {
     mr: 2,
     display: { sm: "none" }
   },
-  sidenavWrap: {
-    width: { sm: drawerWidth },
+  sidenavWrap: (isCollapsed) => ({
+    width: { sm: isCollapsed ? collapsedDrawerWidth : drawerWidth },
     flexShrink: { sm: 0 },
-  },
+    transition: "width 0.3s ease"
+  }),
   paperSm: {
     display: { xs: "block", sm: "none" },
     "& .MuiDrawer-paper": {
@@ -26,41 +31,47 @@ export const styles = {
       overflowY: "visible"
     }
   },
-  paperLg: {
+  paperLg: (isCollapsed) => ({
     display: { xs: "none", sm: "block" },
     "& .MuiDrawer-paper": {
       backgroundColor: "transparent",
       boxSizing: "border-box",
-      width: drawerWidth,
+      width: isCollapsed ? collapsedDrawerWidth : drawerWidth,
       border: "none",
-      overflowY: "visible"
+      overflowY: "visible",
+      transition: "width 0.3s ease"
     }
-  },
-  content: {
+  }),
+  content: (isCollapsed) => ({
     flexGrow: 1,
     boxSizing: "border-box",
-    pl: layoutPad + "px",
-    pr: layoutPad + "px",
-    pt: navHeight + layoutPad + "px",
-    pb: layoutPad + "px",
+    padding: `${navHeight + layoutPad}px ${layoutPad}px ${layoutPad}px ${layoutPad}px`,
     maxWidth: "100%",
-    minHeight: "100vh"
-  },
-  nav: {
+    minHeight: "100vh",
+    marginLeft: {
+      xs: 0,
+      sm: 0 // Remove margin as flexbox handles positioning
+    },
+    transition: "margin-left 0.3s ease"
+  }),
+  nav: (isCollapsed) => ({
     position: "fixed",
     top: 0,
-    left: 0,
+    left: {
+      xs: 0,
+      sm: isCollapsed ? collapsedDrawerWidth : drawerWidth
+    },
     right: 0,
-    pl: { xs: layoutPad + "px", md: `${drawerWidth + layoutPad}px` },
-    pr: layoutPad + "px",
-    height: navHeight + "px",
+    height: navHeight,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    zIndex: 99,
+    zIndex: 1200,
     backgroundColor: "white",
-    filter: "drop-shadow(2px 0 1px rgba(100, 100, 100, 0.5))"
-  },
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    px: `${layoutPad}px`,
+    transition: "left 0.3s ease"
+  }),
   searchIconBtn: {
     borderRadius: "6px",
     display: "flex",
@@ -112,54 +123,59 @@ export const styles = {
     right: "3px",
     bottom: "3px"
   },
-  sidenav: {
+  sidenav: (isCollapsed) => ({
     boxSizing: "border-box",
-    px:5,
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#0a0812",
-    minHeight: "100vh"
-  },
-  logoWrap: {
+    minHeight: "100vh",
+    width: "100%",
+    px: isCollapsed ? 1 : 2
+  }),
+  logoWrap: (isCollapsed) => ({
     height: "80px",
     display: "flex",
     alignItems: "center",
-    px: "16px"
-  },
+    justifyContent: isCollapsed ? "center" : "flex-start",
+    px: isCollapsed ? 0 : "16px"
+  }),
   logoImg: {
     height: "40px"
   },
-  logoLbl: {
+  logoLbl: (isCollapsed) => ({
     textTransform: "uppercase",
     color: "rgba(220, 220, 220, 0.65)",
     fontWeight: 600,
     fontFamily: FONT_FAMILY.primary,
     p: 0,
-    m: 0
-  },
+    m: 0,
+    display: isCollapsed ? "none" : "block"
+  }),
   sideNavig: {
     flex: 1,
     height: "100%",
     overflowY: "auto",
+    overflowX: "hidden",
     "&::-webkit-scrollbar": {
-      width: "5px"
+      width: "4px"
     },
     "&::-webkit-scrollbar-track": {
-      background: "#f1f1f1"
+      background: "transparent"
     },
     "&::-webkit-scrollbar-thumb": {
-      background: "#888",
+      background: "rgba(255,255,255,0.2)",
       borderRadius: "999px"
     },
     "&::-webkit-scrollbar-thumb:hover": {
-      background: "#555"
+      background: "rgba(255,255,255,0.3)"
     }
   },
-  navLInkIn: {
+  navLInkIn: (isCollapsed) => ({
     display: "flex",
     alignItems: "center",
-    gap: 1
-  },
+    gap: isCollapsed ? 0 : 1,
+    justifyContent: isCollapsed ? "center" : "flex-start"
+  }),
   navLinkSub: {
     display: "flex",
     alignItems: "center",
@@ -178,5 +194,27 @@ export const styles = {
   },
   iconColor: {
     color: "rgba(255, 255, 255, 0.75)"
+  },
+  collapseToggle: {
+    position: "absolute",
+    top: "50%",
+    right: "-12px",
+    transform: "translateY(-50%)",
+    backgroundColor: "#0a0812",
+    border: "2px solid rgba(255,255,255,0.2)",
+    color: "white",
+    width: "34px",
+    height: "34px",
+    borderRadius: "50%",
+    display: { xs: "none", sm: "flex" },
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    fontSize: "16px",
+    zIndex: 1300,
+    "&:hover": {
+      backgroundColor: "#1a1625",
+      borderColor: "rgba(255,255,255,0.4)"
+    }
   }
 }

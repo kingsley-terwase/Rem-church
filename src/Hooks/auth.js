@@ -2,34 +2,83 @@ import axios from "axios";
 import { API_BASE_URL } from "../Config/url";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { login as loginAction } from "../Store/slices/authSlice"; 
 import { toastErr, toastInfo, toastSuccess } from "../Utilities/alertService";
 
 export const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const login = async (email, password) => {
     setLoading(true);
     setError(null);
 
     try {
-      console.log("Sending login request with:", { email, password });
+      console.log("🔐 Sending login request with:", { email });
 
-      const response = await axios.post(`${API_BASE_URL}/login`, { email, password });
+      const response = await axios.post(`${API_BASE_URL}/login`, { 
+        email, 
+        password 
+      });
 
-      console.log("Response received:", response);
+      console.log("📨 Login response received:", response.data);
 
-      const { token } = response.data;
+      const { token, data: user, message, success, ...otherData } = response.data;
 
-      localStorage.setItem("authToken", token);
+      // Validate that we have the required data
+      if (!token) {
+        throw new Error("No token received from server");
+      }
+
+      if (!user) {
+        throw new Error("No user data received from server");
+      }
+
+      // Log the user data for debugging
+      console.log("👤 User data from server:", user);
+      console.log("🔑 Token received:", token ? "✅" : "❌");
+      console.log("✅ Success:", success);
+      console.log("💬 Message:", message);
+
+      // Prepare user data for Redux store
+      const userData = {
+        ...user,
+        token, // Include token in user data
+      };
+
+      console.log("🏪 Dispatching login action with:", userData);
+
+      // Dispatch login action to update Redux store
+      dispatch(loginAction(userData));
+
+      // Show success message
+      toastSuccess("Login successful!");
 
       setLoading(false);
+
+      // Navigate to dashboard
+      navigate("/dashboard");
+
       return response.data;
     } catch (err) {
-      console.error("Error during login:", err.response?.data || err.message);
+      console.error("❌ Error during login:", {
+        message: err.message,
+        response: err.response?.data,
+        status: err.response?.status
+      });
 
+      const errorMessage = err.response?.data?.message || err.message || "Login failed. Please try again.";
+      
       setLoading(false);
-      setError(err.response?.data?.message || "An error occurred.");
+      setError(errorMessage);
+      
+      // Show error message
+      toastErr(errorMessage);
+
+      throw err; // Re-throw for component handling if needed
     }
   };
 

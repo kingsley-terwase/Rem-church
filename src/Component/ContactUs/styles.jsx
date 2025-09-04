@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
+import { COLOR } from '../../Config/Color';
 
 export const StyledSection = styled(Box)(({ theme }) => ({
   backgroundColor: 'whitesmoke',
@@ -36,7 +37,7 @@ export const ContactForm = styled(Paper)(({ theme }) => ({
 export const IconWrapper = styled(Avatar)(({ theme }) => ({
   width: 60,
   height: 60,
-  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  backgroundColor: COLOR.primary,
   margin: '0 auto 16px',
   '& svg': {
     fontSize: '24px'
@@ -44,7 +45,7 @@ export const IconWrapper = styled(Avatar)(({ theme }) => ({
 }));
 
 export const StyledButton = styled(Button)(({ theme }) => ({
-  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  backgroundColor: COLOR.primary,
   color: 'white',
   padding: theme.spacing(1.5, 4),
   borderRadius: theme.spacing(3),
@@ -52,7 +53,7 @@ export const StyledButton = styled(Button)(({ theme }) => ({
   fontSize: '16px',
   fontWeight: 600,
   '&:hover': {
-    background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
+    backgroundColor: COLOR.primary,
     transform: 'translateY(-2px)',
     boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
   }

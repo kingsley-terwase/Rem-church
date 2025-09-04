@@ -247,23 +247,6 @@ const HomePage = () => {
                 buttonText="View More Ministries"
             />
             <ContactUs/>
-            <Box sx={{ display: "flex", py: "4rem", alignItems: "center", justifyContent: "center"}}>
-                <Link to="/ministries" style={{textDecoration: "none"}}>
-                    <Button
-                        variant="contained"
-                        sx={{
-                            backgroundColor: "white",
-                            color: COLOR.primary,
-                            fontFamily: FONT_FAMILY.primary,
-                            fontWeight: "700",
-                            textTransform: "capitalize",
-                        }}
-                    >
-                        view more <ArrowRightAltIcon />{" "}
-                    </Button>
-                </Link>
-            </Box>
-            
             <Container maxWidth="lg">
                 <Stack
                     direction="column"

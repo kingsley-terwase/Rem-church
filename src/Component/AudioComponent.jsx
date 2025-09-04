@@ -34,7 +34,7 @@ const styles = {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundColor: "rgb(191, 10, 48, 0.7)",
+        backgroundColor: COLOR.primary,
     },
     textBox: {
         zIndex: 2,

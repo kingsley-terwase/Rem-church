@@ -1,5 +1,6 @@
 export const FONT_FAMILY = {
   primary: "Poppins",
   secondary: "Satisfy",
-  tertiary: 'Comfortaa',  
+  tertiary: 'Comfortaa', 
+  font_one: 'Jost', 
 }
