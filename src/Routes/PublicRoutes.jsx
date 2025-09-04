@@ -26,7 +26,7 @@ const PublicRoutes = () => {
     setLoading(true)
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 500)
+    }, 5000)
     return () => clearTimeout(timer)
   }, [location])
 
